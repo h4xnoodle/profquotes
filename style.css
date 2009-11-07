@@ -1,0 +1,94 @@
+body {
+	margin:0;
+}
+ul.toplinks {
+	margin:5px 0 5px 10px; padding:0;
+	list-style:none;
+	}
+	ul.toplinks li {
+		float:left;
+		margin:20px 10px 0 0;
+		}
+		ul.toplinks li a {
+			display:block;
+			padding:5px 10px;
+			text-decoration:none;
+			color:#333;
+			font-family:sans-serif;
+			font-size:14px;
+			line-height:26px;
+			}
+		ul.toplinks li a:hover {
+			background-color:#999;
+			color:#fff;
+			}
+		ul.toplinks li.title a {
+			font-size:26px;
+			font-family:sans-serif;
+			}
+		ul.toplinks li.title a:hover {
+			background-color:transparent;
+			color:#333;
+			}
+div#wrap {
+	clear:both;
+	border-top:1px solid #999;
+	}
+	div#wrap p {
+		margin:20px 0 10px 15px;
+		font-family:sans-serif;
+		}
+	div#wrap p.searchresult {
+		border-bottom:1px dashed #999;
+		margin:10px 0 20px 0;
+		padding:0 0 5px 20px;
+		display:block;		
+		}
+	div#wrap h2 {
+		font-family:Garamond, serif;
+		color:#999;
+		font-style:italic;
+		}
+div.output {
+	width:15cm;
+	margin:10px 0 0 20px;
+	}
+	div.output p.quote {
+		margin:20px 0; padding:0;
+		}
+	div.output p.prof {
+		font-style:italic;
+		text-align:right;
+		margin:0; padding:0;
+		color:#777777;
+		}
+div.search {
+	clear:both;
+	padding:0 15px; margin:0;
+	border-bottom:1px dashed #999;
+	font-family:sans-serif;
+	font-size:14px;
+	}
+	div.search h1 {
+		border-bottom:1px solid #ddd;
+		padding:5px 0; margin:10px 0;
+		color:#555;
+		font-style:italic;
+		font-size:26px;
+		font-family:Garamond, serif;
+		}
+	div.search label {
+		display:block;
+		padding:1px 10px;
+		margin:10px 0 0 0;
+		float:left;
+		text-align:right;
+		width:140px;
+		font-size:16px;
+		color:#777;
+		line-height:25px;
+		}
+	div.search input, div.search select {
+		font-size:16px;
+		padding:1px 1px; margin:15px 0 0 0;
+		}

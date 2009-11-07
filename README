@@ -1,0 +1,30 @@
+University of Waterloo
+Mathematics Faculty - MathSOC
+mathNEWS
+
+Rebecca Putinski (rjputins)
+
+http://csclub.uwaterloo.ca/~rjputins/profquotes
+
+profQUOTE database/quote manager
+
+FRONT-END
+
+Features:
+	- Search for quotes via prof
+	- order by term/year/prof/score
+	- random quote
+	- pretty quote output
+
+Coming soon:
+	- rating of quotes
+	- display options for quotes (paginate)
+	- RSS feed for new quotes
+
+Distant future:
+	- Temp queue/submission instead/in addition to blackbox (public)
+
+
+BACK-END
+
+Parse and update quotes. 
