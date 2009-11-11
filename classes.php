@@ -35,16 +35,29 @@ class Quotes extends Database {
 		return $result;
 	}
 	
-	// Return some quotes based on search criteria
-	function getQuotes($search, $sort='term', $exact=false, $rand=false) {
+	// Return some quotes based on search criteria (array)
+	// prof, sort, rand, exact, limit
+	function getQuotes($search) {
+		// Set some defaults unless they're in $search
+		$search['sort'] = ($search['sort']) ? $search['sort'] : "term";
+		$search['rand'] = ($search['rand']) ? true : false;
+		$search['limit'] = ($search['limit'] > 0) ? $search['limit'] : 0;
 
-		if($search == "all")
-			$query = "SELECT * FROM ".$this->table." ORDER BY ".$sort." ASC";
-		else if($exact)
-			$query = "SELECT * FROM ".$this->table." WHERE prof='".$search."' ORDER BY ".$sort." ASC";
-		else if($search != "all" && $search != "" && !$exact)
-			$query = "SELECT * FROM ".$this->table." WHERE prof LIKE '%".$search."%' ORDER BY ".$sort. " ASC";
+		// Build query
+		if($search['prof'] == "all")
+			$query = "SELECT * FROM ".$this->table;		
+		else if($search['exact'])
+			$query .= " WHERE prof='".$search['prof']."'";
+		else if($search['prof'] != "" && !$search['exact'])
+			$query .= " WHERE prof LIKE '%".$search['prof']."%'";
+		else 
+			return false;
 		
+		$query .= " ORDER BY ".$search['sort']." ASC";
+
+		if($search['limit'])
+			$query .= " LIMIT ".$search['limit'];
+
 		// get quotes that match something in the array
 		// keys: prof, course, term, year, score
 		if($query) {
@@ -53,7 +66,7 @@ class Quotes extends Database {
 			while($row = mysql_fetch_assoc($result))
 				$quotes[] = $row;
 			
-			if($rand && is_array($quotes))
+			if($search['rand'] && is_array($quotes))
 				shuffle($quotes);
 				
 			return $quotes;
