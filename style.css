@@ -1,6 +1,15 @@
 body {
 	margin:0;
 }
+div.maintenance {
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border-bottom:1px dashed #888;
+	color:#888;
+	background-color:#eee;
+	font-family:Arial, sans-serif;
+	}
 ul.toplinks {
 	margin:5px 0 5px 10px; padding:0;
 	list-style:none;
@@ -69,6 +78,11 @@ div.search {
 	font-family:sans-serif;
 	font-size:14px;
 	}
+	div.search form p {
+		margin:0; padding:0;
+		height:15px;
+		line-height:15px;
+	}
 	div.search h1 {
 		border-bottom:1px solid #ddd;
 		padding:5px 0; margin:10px 0;
@@ -77,18 +91,17 @@ div.search {
 		font-size:26px;
 		font-family:Garamond, serif;
 		}
-	div.search label {
+	div.search form p label {
 		display:block;
-		padding:1px 10px;
-		margin:10px 0 0 0;
 		float:left;
+		padding:1px 10px 0 0;
 		text-align:right;
-		width:140px;
+		width:120px;
 		font-size:16px;
 		color:#777;
-		line-height:25px;
 		}
-	div.search input, div.search select {
+	div.search form p input, 
+	div.search form p select {
 		font-size:16px;
-		padding:1px 1px; margin:15px 0 0 0;
+		min-width:20px;
 		}

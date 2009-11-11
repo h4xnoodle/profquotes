@@ -2,6 +2,8 @@
 
 require('database.class.php');
 
+//define("MAINTENANCE", 1);
+
 // All quote methods
 class Quotes extends Database {
 
@@ -41,17 +43,17 @@ class Quotes extends Database {
 		// Set some defaults unless they're in $search
 		$search['sort'] = ($search['sort']) ? $search['sort'] : "term";
 		$search['rand'] = ($search['rand']) ? true : false;
-		$search['limit'] = ($search['limit'] > 0) ? $search['limit'] : 0;
+		$search['limit'] = (intval($search['limit'])) ? $search['limit'] : 0;
 
 		// Build query
-		if($search['prof'] == "all")
-			$query = "SELECT * FROM ".$this->table;		
+		$query = "SELECT * FROM ".$this->table;		
+
+		if($search['prof'] == "")
+			return false;
 		else if($search['exact'])
 			$query .= " WHERE prof='".$search['prof']."'";
 		else if($search['prof'] != "" && !$search['exact'])
 			$query .= " WHERE prof LIKE '%".$search['prof']."%'";
-		else 
-			return false;
 		
 		$query .= " ORDER BY ".$search['sort']." ASC";
 

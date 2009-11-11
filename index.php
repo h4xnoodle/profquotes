@@ -1,5 +1,8 @@
 <?php
 
+// To store current search
+session_start();
+
 require_once('classes.php');
 
 $Q = new Quotes();
@@ -7,15 +10,21 @@ include('header.php');
 
 $quotes = 0;
 
-if($_POST['submit']) {
-	$search = $_POST['search'];	
+if($_POST['submit']){ 
+	$search = $_POST['search'];
+	$_SESSION['search'] = $search;
+	
 	if(!$search['prof'] == "") {
 		echo "<p class='searchresult'>You searched for: <b>".$search['prof']."</b> ";
 		echo ($search['exact']) ? "(exact) " : "(partial) ";
-		if(!$search['random'])
-			echo "and sorted by <b>".$search['sort']."</b>.</p>\n\n";
+		if(!$search['rand'])
+			echo "and sorted by <b>".$search['sort']."</b>.";
 		else
-			echo "and chose to be <b>rAnDoM</b></p>\n\n";
+			echo "and chose to be <b>rAnDoM</b>!";
+		if(intval($search['limit']))
+			echo " Returning ".intval($search['limit'])." results.</p>\n\n";
+		else
+			echo " Returning all results.</p>\n\n";
 	}
 	else 
 		echo "<p>You searched for nothing! Try again, noob</p>\n\n";
@@ -23,20 +32,21 @@ if($_POST['submit']) {
 	$quotes = $Q->getQuotes($search);
 }
 else {
+	$search = $_SESSION['search'];
 ?>
-<p>Scoring not implemented yet, but coming soon! Searching by prof only for now... Searching by quote would mean a lot of long-string searching which is pricey bizness</p>
 <p>Todo: scoring, display options.</p>
 <div class="search">
 <form method="post" action="index.php">
 	<h1>Search Filters</h1>
-	<p>Type 'all' in the search box to get all quotes. Don't rape the server plz</p>
-	<label for="search[prof]">Search by prof</label><input type="text" name="search[prof]" value="<?php echo ($search['prof']) ? $search['prof'] : ""; ?>" style="width:300px;" />
-	<input type="checkbox" name="search[exact]" /> Exact match?<br />
-	<label for="search[sort]">Sort by</label><select name="search[sort]"><?php echo ($search['sort']) ? "<option>".$search['sort']."</option>" : ""; ?><option>term</option><option>year</option><option>prof</option><option>score</option></select> (Ascending)<br />
-	<label for="search[rand]">Randomize!</label><input type="checkbox" name="search[rand]" /> <br /><br />
-	<label for="search[limit]">Limit</label><input type="text" name="search[limit]" value="<?php echo $search['limit']; ?>" /><br />
-	<input type="submit" name="submit" value="Search" />
+	<p>Type 'all' in the search box to get all quotes.</p>
+	<p><label>Search by prof</label><input type="text" name="search[prof]" value="<?php echo ($search['prof']) ? $search['prof'] : ""; ?>" style="width:300px;" />
+	<input type="checkbox" name="search[exact]" /> Exact match?</p>
+	<p><label>Sort by</label><select name="search[sort]"><?php echo ($search['sort']) ? "<option>".$search['sort']."</option>" : ""; ?><option>term</option><option>year</option><option>prof</option><option>score</option></select> (Ascending)</p>
+	<p><label>Randomize!</label><input type="checkbox" name="search[rand]" /></p>
+	<p><label>Limit</label><input type="text" name="search[limit]" value="<?php echo $search['limit']; ?>" style="width:40px;" /></p>
+	<p><label> </label><input type="submit" name="submit" value="Search" /></p>
 </form>
+<br style="clear:both;" />
 </div>
 <?php } ?>
 <div class="output">
