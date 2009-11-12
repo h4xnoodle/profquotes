@@ -53,7 +53,9 @@ else {
 <?php
 if($quotes) {
 	foreach($quotes as $quote) {
-		echo "<p class='quote'>\"".nl2br($quote['quote'])."\"<br /><br /><p class='prof'>".$quote['prof'].", ".$quote['course']." (".$quote['term']." ".$quote['year'].")</p></p><br />\n";
+		echo "<p class='quote'>\"".nl2br($quote['quote'])."\"<br /><br /><p class='prof'>".$quote['prof'].", ".$quote['course'];
+		//echo "(".$quote['term']." ".$quote['year'].")";
+		echo "</p></p><br />\n";
 	}
 	unset($quotes);
 }

@@ -2,8 +2,6 @@
 
 require('database.class.php');
 
-//define("MAINTENANCE", 1);
-
 // All quote methods
 class Quotes extends Database {
 
@@ -50,6 +48,8 @@ class Quotes extends Database {
 
 		if($search['prof'] == "")
 			return false;
+		else if($search['prof'] == "all")
+			true;
 		else if($search['exact'])
 			$query .= " WHERE prof='".$search['prof']."'";
 		else if($search['prof'] != "" && !$search['exact'])

@@ -1,6 +1,13 @@
+/*
+* CSS File
+*/
+
+/* Get rid of the body margin. */
 body {
 	margin:0;
 }
+
+/* Display a maintenance message */
 div.maintenance {
 	height:40px;
 	line-height:40px;
@@ -10,6 +17,8 @@ div.maintenance {
 	background-color:#eee;
 	font-family:Arial, sans-serif;
 	}
+
+/* The navigation at the top */
 ul.toplinks {
 	margin:5px 0 5px 10px; padding:0;
 	list-style:none;
@@ -39,6 +48,8 @@ ul.toplinks {
 			background-color:transparent;
 			color:#333;
 			}
+
+/* Random formatting that isn't contained already */
 div#wrap {
 	clear:both;
 	border-top:1px solid #999;
@@ -58,6 +69,8 @@ div#wrap {
 		color:#999;
 		font-style:italic;
 		}
+
+/* Ouput formatting */
 div.output {
 	width:15cm;
 	margin:10px 0 0 20px;
@@ -71,6 +84,9 @@ div.output {
 		margin:0; padding:0;
 		color:#777777;
 		}
+
+
+/* Search form on front page */
 div.search {
 	clear:both;
 	padding:0 15px; margin:0;
@@ -80,8 +96,8 @@ div.search {
 	}
 	div.search form p {
 		margin:0; padding:0;
-		height:15px;
-		line-height:15px;
+		height:20px;
+		line-height:20px;
 	}
 	div.search h1 {
 		border-bottom:1px solid #ddd;

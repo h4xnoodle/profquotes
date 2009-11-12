@@ -7,10 +7,6 @@
 </head>
 <body>
 
-<?php if(defined('MAINTENANCE'))
-	echo "<div class='maintenance'>Undergoing a bit of maintenance. As I edit the files right on the server, things may be broken.</div>";
-?>
-
 <ul class="toplinks">
 	<li class="title"><a href="index.php" title="OMG DATABASE! Surprising that with all the CS kids... no one has done this..."><i>prof</i><b>QUOTES</b></a></li>
 	<li><a href="index.php">Search and stuff</a></li>
