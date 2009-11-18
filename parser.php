@@ -24,12 +24,12 @@ if($_SESSION['loggedin']){
 	</select>
 	<input type="text" name="year" <?php echo ($_POST['year']) ? "value=\"".$_POST['year']."\"" : "value=\"".date('Y')."\""; ?> size="5">
 	<input type="checkbox" name="style" value="new" <?php echo ($_POST['style']) ? "checked" : ""; ?>/> Old style? <br />
-	<textarea name="quotes" style="width:95%;height:300px;"><?php echo $_POST['quotes']; ?></textarea><br />
+	<textarea name="quotes" style="width:95%;height:300px;"><?php echo stripslashes($_POST['quotes']); ?></textarea><br />
 	<input type="reset" value="Reset to last parse" /> <input type="submit" name="submit" value="Parse Input + Preview" />
 
 <?php
 	if($_POST['submit']){
-		$quotes = $_POST['quotes'];
+		$quotes = stripslashes($_POST['quotes']);
 		
 		if($quotes == "") {
 			echo "You didn't input anything!";

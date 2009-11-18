@@ -34,7 +34,7 @@ if($_POST['submit']){
 else {
 	$search = $_SESSION['search'];
 ?>
-<p>Todo: scoring, display options.</p>
+<p>Search for your favourite profs!</p>
 <div class="search">
 <form method="post" action="index.php">
 	<h1>Search Filters</h1>
@@ -44,6 +44,7 @@ else {
 	<p><label>Sort by</label><select name="search[sort]"><?php echo ($search['sort']) ? "<option>".$search['sort']."</option>" : ""; ?><option>term</option><option>year</option><option>prof</option><option>score</option></select> (Ascending)</p>
 	<p><label>Randomize!</label><input type="checkbox" name="search[rand]" /></p>
 	<p><label>Limit</label><input type="text" name="search[limit]" value="<?php echo $search['limit']; ?>" style="width:40px;" /></p>
+	<p><label>Rm Term/Year</label><input type="checkbox" name="search[ty]" /></p>
 	<p><label> </label><input type="submit" name="submit" value="Search" /></p>
 </form>
 <br style="clear:both;" />
@@ -54,7 +55,8 @@ else {
 if($quotes) {
 	foreach($quotes as $quote) {
 		echo "<p class='quote'>\"".nl2br($quote['quote'])."\"<br /><br /><p class='prof'>".$quote['prof'].", ".$quote['course'];
-		//echo "(".$quote['term']." ".$quote['year'].")";
+		if(!$search['ty'])
+			echo " (".$quote['term']." ".$quote['year'].")";
 		echo "</p></p><br />\n";
 	}
 	unset($quotes);
