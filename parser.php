@@ -12,10 +12,10 @@ include('parserfuncs.php');
 
 ?>
 
-<form method="post" action="parser.php">
+<form method="post" class="parser" action="parser.php">
 
 <?php
-echo ($_SESSION['loggedin']) ? "<p>LOGGED IN <input type='submit' name='logout' value='logout' /></p>" : "<p>You haz no permissionz</p>";
+echo ($_SESSION['loggedin']) ? "<p class='logout'>LOGGED IN <input type='submit' name='logout' value='logout' /></p>" : "<p>You haz no permissionz</p>";
 if($_SESSION['loggedin']){
 ?>
 	<a href="parser.php">Start Fresh</a> <a href="fix.php">Update quotes</a><br /><br />
@@ -24,7 +24,7 @@ if($_SESSION['loggedin']){
 	</select>
 	<input type="text" name="year" <?php echo ($_POST['year']) ? "value=\"".$_POST['year']."\"" : "value=\"".date('Y')."\""; ?> size="5">
 	<input type="checkbox" name="style" value="new" <?php echo ($_POST['style']) ? "checked" : ""; ?>/> Old style? <br />
-	<textarea name="quotes" style="width:95%;height:300px;"><?php echo stripslashes($_POST['quotes']); ?></textarea><br />
+	<textarea name="quotes"><?php echo stripslashes($_POST['quotes']); ?></textarea><br />
 	<input type="reset" value="Reset to last parse" /> <input type="submit" name="submit" value="Parse Input + Preview" />
 
 <?php

@@ -12,7 +12,7 @@ if($_SESSION['loggedin']) { ?>
 	<form method="post" action="fix.php">
 	Search for a bad quote by prof: <input type="text" name="search" value="<?php echo($_POST['search']) ? $_POST['search'] : ""; ?>" />
 	<br />Term <select name="term"><option>Spring</option><option>Fall</option><option>Winter</option></select> 
-	<input type="text" name="year" value="<?php echo ($_POST['year']) ? $_POST['year'] : ""; ?>" />
+	<input type="text" name="syear" value="<?php echo ($_POST['syear']) ? $_POST['syear'] : ""; ?>" />
 	<br /><input type="submit" name="submit" value="Search" />
 
 <?php if($_POST['submit']) {
@@ -34,6 +34,9 @@ if($_SESSION['loggedin']) { ?>
 		echo "<pre>";
 		print_r($_POST);
 		echo "</pre>";
+		foreach($_POST['quote'] as $quote) {
+			echo "<p>".$quote." ".$prof." ".$course." ".$term;
+		}
 	}
 		
 $update->disconnect();

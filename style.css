@@ -7,17 +7,6 @@ body {
 	margin:0;
 }
 
-/* Display a maintenance message */
-div.maintenance {
-	height:40px;
-	line-height:40px;
-	text-align:center;
-	border-bottom:1px dashed #888;
-	color:#888;
-	background-color:#eee;
-	font-family:Arial, sans-serif;
-	}
-
 /* The navigation at the top */
 ul.toplinks {
 	margin:5px 0 5px 10px; padding:0;
@@ -121,3 +110,19 @@ div.search {
 		font-size:16px;
 		min-width:20px;
 		}
+
+/* logout */
+p.logout {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+
+/* Parser form */
+form.parser {
+	padding:10px;
+}
+	form.parser textarea {
+		height:300px;
+		width:100%;
+	}

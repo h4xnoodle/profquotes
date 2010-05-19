@@ -102,4 +102,11 @@ function verify($quote) {
 	echo ">".$quote['course']."</td>";
 	echo "<td>".$quote['term']." ".$quote['year']."</td></tr>\n";
 }
+
+// Last added - for term/year so I don't add stuff twice
+function lastAdded() {
+	global $Q;
+	$quote = $Q->getLastAdded();
+	echo "<p>Last added: <b>".$quote['term']."/".$quote['year']."</b> : ".$quote['quote']."</p>";
+}
 ?>
