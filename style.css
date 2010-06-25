@@ -47,6 +47,14 @@ div#wrap {
 		margin:20px 0 10px 15px;
 		font-family:sans-serif;
 		}
+	div#wrap p a {
+		text-decoration:none;
+		font-style:italic;
+		color:#777;
+		}
+	div#wrap p a:hover {
+		border-bottom:1px dashed #777;
+		}
 	div#wrap p.searchresult {
 		border-bottom:1px dashed #999;
 		margin:10px 0 20px 0;

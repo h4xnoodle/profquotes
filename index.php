@@ -34,7 +34,7 @@ if($_POST['submit']){
 else {
 	$search = $_SESSION['search'];
 ?>
-<p>Search for your favourite profs!</p>
+<p>Search for your favourite profs! If you encounter any issues, please contact <a href="mailto:rjputins@csclub.uwaterloo.ca">rjputins</a></p>
 <div class="search">
 <form method="post" action="index.php">
 	<h1>Search Filters</h1>
